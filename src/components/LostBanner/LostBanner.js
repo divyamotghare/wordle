@@ -6,7 +6,9 @@ function LostBanner({ answer, handleRestart }) {
   return (
     <>
       <Banner status="sad">
-        <button onClick={() => handleRestart()}>Restart</button>
+        <button className="btn" onClick={() => handleRestart()}>
+          Restart
+        </button>
         <p>
           Sorry, the correct answer is <strong>{answer}</strong>.
         </p>

@@ -6,7 +6,9 @@ function WonBanner({ numOfGuesses, handleRestart }) {
   return (
     <>
       <Banner status="happy">
-        <button onClick={() => handleRestart()}>Restart</button>
+        <button className="btn" onClick={() => handleRestart()}>
+          Restart
+        </button>
         <p>
           <strong>Congratulations!</strong> Got it in{" "}
           <strong>
