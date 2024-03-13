@@ -99,6 +99,20 @@ h1 {
   position: relative;
 }
 
+.btn {
+  color: #000;
+  text-align: center;
+  border: none;
+  border: 1px solid var(--color-gray-300);
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 550;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .guess:first-of-type .cell:first-of-type {
   --radius: 4px 0px 0px 0px;
 }

@@ -27239,17 +27239,15 @@ var _wonBannerDefault = parcelHelpers.interopDefault(_wonBanner);
 var _lostBanner = require("../LostBanner");
 var _lostBannerDefault = parcelHelpers.interopDefault(_lostBanner);
 var _s = $RefreshSig$();
-// Pick a random word on every pageload.
-const answer = (0, _utils.sample)((0, _data.WORDS));
-// To make debugging easier, we'll log the solution in the console.
-console.info({
-    answer
-});
 function Game() {
     _s();
     // running | won | lost
     const [gameStatus, setGameStatus] = (0, _reactDefault.default).useState("running");
     const [guesses, setGuesses] = (0, _reactDefault.default).useState([]);
+    const [answer, setAnswer] = (0, _react.useState)((0, _utils.sample)((0, _data.WORDS)));
+    console.info({
+        answer
+    });
     function handleSubmitGuess(tentativeGuess) {
         const nextGuesses = [
             ...guesses,
@@ -27261,7 +27259,8 @@ function Game() {
     }
     function handleRestart() {
         setGuesses([]);
-        setGameStatus("runnning");
+        setGameStatus("running");
+        setAnswer((0, _utils.sample)((0, _data.WORDS)));
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -27286,7 +27285,7 @@ function Game() {
                 handleRestart: handleRestart
             }, void 0, false, {
                 fileName: "src/components/Game/Game.js",
-                lineNumber: 47,
+                lineNumber: 48,
                 columnNumber: 9
             }, this),
             gameStatus === "lost" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _lostBannerDefault.default), {
@@ -27294,13 +27293,13 @@ function Game() {
                 handleRestart: handleRestart
             }, void 0, false, {
                 fileName: "src/components/Game/Game.js",
-                lineNumber: 53,
+                lineNumber: 54,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true);
 }
-_s(Game, "/9ibBrEK1aCg/Rbl4fbycbypwMY=");
+_s(Game, "jfCE73OtB9TrTX0NvwrEvUbCUt0=");
 _c = Game;
 exports.default = Game;
 var _c;
@@ -27451,6 +27450,7 @@ function GuessInput({ gameStatus , handleSubmitGuess  }) {
         handleSubmitGuess(tentativeGuess);
         setTentativeGuess("");
     }
+    console.log("status", gameStatus);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         onSubmit: handleSubmit,
         className: "guess-input-wrapper",
@@ -27460,7 +27460,7 @@ function GuessInput({ gameStatus , handleSubmitGuess  }) {
                 children: "Enter guess:"
             }, void 0, false, {
                 fileName: "src/components/GuessInput/GuessInput.js",
-                lineNumber: 16,
+                lineNumber: 17,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -27479,17 +27479,17 @@ function GuessInput({ gameStatus , handleSubmitGuess  }) {
                 type: "text"
             }, void 0, false, {
                 fileName: "src/components/GuessInput/GuessInput.js",
-                lineNumber: 17,
+                lineNumber: 18,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/GuessInput/GuessInput.js",
-        lineNumber: 15,
+        lineNumber: 16,
         columnNumber: 5
     }, this);
 }
-_s(GuessInput, "Nmxxg7kOIoxtnp63oWkjltQbDS8=");
+_s(GuessInput, "+Ui01OZIiKy3oUY9CwelLJi1aCw=");
 _c = GuessInput;
 exports.default = GuessInput;
 var _c;
@@ -27822,6 +27822,7 @@ function WonBanner({ numOfGuesses , handleRestart  }) {
             status: "happy",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "btn",
                     onClick: ()=>handleRestart(),
                     children: "Restart"
                 }, void 0, false, {
@@ -27835,7 +27836,7 @@ function WonBanner({ numOfGuesses , handleRestart  }) {
                             children: "Congratulations!"
                         }, void 0, false, {
                             fileName: "src/components/WonBanner/WonBanner.js",
-                            lineNumber: 11,
+                            lineNumber: 13,
                             columnNumber: 11
                         }, this),
                         " Got it in",
@@ -27844,14 +27845,14 @@ function WonBanner({ numOfGuesses , handleRestart  }) {
                             children: numOfGuesses === 1 ? "1 guess" : `${numOfGuesses} guesses`
                         }, void 0, false, {
                             fileName: "src/components/WonBanner/WonBanner.js",
-                            lineNumber: 12,
+                            lineNumber: 14,
                             columnNumber: 11
                         }, this),
                         "."
                     ]
                 }, void 0, true, {
                     fileName: "src/components/WonBanner/WonBanner.js",
-                    lineNumber: 10,
+                    lineNumber: 12,
                     columnNumber: 9
                 }, this)
             ]
@@ -27940,6 +27941,7 @@ function LostBanner({ answer , handleRestart  }) {
             status: "sad",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "btn",
                     onClick: ()=>handleRestart(),
                     children: "Restart"
                 }, void 0, false, {
@@ -27954,14 +27956,14 @@ function LostBanner({ answer , handleRestart  }) {
                             children: answer
                         }, void 0, false, {
                             fileName: "src/components/LostBanner/LostBanner.js",
-                            lineNumber: 11,
+                            lineNumber: 13,
                             columnNumber: 40
                         }, this),
                         "."
                     ]
                 }, void 0, true, {
                     fileName: "src/components/LostBanner/LostBanner.js",
-                    lineNumber: 10,
+                    lineNumber: 12,
                     columnNumber: 9
                 }, this)
             ]
